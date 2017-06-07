@@ -1,4 +1,4 @@
-# Sauer IRC To Discord
+# Sauerbraten IRC To Discord
 
 A little Node.js application that echoes Remod server messages from IRC in Discord with nice formatting.
 
