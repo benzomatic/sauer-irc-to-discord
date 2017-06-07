@@ -1,0 +1,16 @@
+{
+  "name": "sauer-irc-to-discord",
+  "version": "1.0.0",
+  "description": "A little Node.js application that echoes Remod server messages from IRC in Discord with nice formatting.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "author": "AngrySnout",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.1.0",
+    "irc": "^0.5.2"
+  }
+}
