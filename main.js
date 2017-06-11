@@ -176,6 +176,14 @@ discordClient.on('ready', function() {
     console.log('[DISCORD] Successfully connected to discord.');
 });
 
+function getNick(user, guild) {
+    const userDetails = guild.members.get(user.id);
+    if (userDetails) {
+      return userDetails.nickname || user.username;
+    }
+    return user.username;
+}
+
 discordClient.on('message', function(message) {
     if(message.channel.type == "text" && message.channel.id == discordChannelID) {  // Don't allow pm's ever.
         if(message.guild.member(message.author) !== message.guild.me) {
@@ -197,7 +205,7 @@ discordClient.on('message', function(message) {
                     ircClient.say(ircChannels, message.content);  // send command to IRC
                 }
             } else {
-                ircClient.say(ircChannels, "<" + message.guild.member(message.author).nickname + ">" + " " + message.content);  // normal chat IRC-bridge
+                ircClient.say(ircChannels, "<" + getNick(message.author, message.guild) + ">" + " " + message.content);  // normal chat IRC-bridge
             }
         }
     }
